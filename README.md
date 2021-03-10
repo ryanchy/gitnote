@@ -1,2 +1,0 @@
-# gitnote
-make some note
