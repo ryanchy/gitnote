@@ -53,9 +53,22 @@ logger.setLevel(logging.DEBUG)
 logger.addHandler(FD)
 logger.addHandler(SD)
 logger.debug("let us go")
+# logger.info("show info message")
+#抓取traceback
+try: 
+    pass   
+except Exception:
+#     logger.exception("something error")
+    logger.error("soemthing wrong",exc_info=True)
 
 # logger.info("show info message")
-
+"""pytest.ini中添加如下代码：
+[pytest]
+log_cli = true
+log_cli_level = DEBUG
+log_format = %(asctime)s (%(filename)-16s:%(lineno)-3s) %(levelname)-8s %(message)s
+log_date_format = %Y-%M-%D %H:%M:%S
+"""
 
 ```
 

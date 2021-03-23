@@ -1,0 +1,61 @@
+2021-03-23 20:56:53,235 - __main__ - INFO - Start print log
+2021-03-23 20:56:53,292 - __main__ - WARNING - Something maybe fail.
+2021-03-23 20:56:53,325 - __main__ - INFO - Finish
+2021-03-23 20:57:15,562 - __main__ - INFO - Start print log
+2021-03-23 20:57:15,562 - __main__ - INFO - Start print log
+2021-03-23 20:57:15,591 - __main__ - WARNING - Something maybe fail.
+2021-03-23 20:57:15,591 - __main__ - WARNING - Something maybe fail.
+2021-03-23 20:57:15,606 - __main__ - INFO - Finish
+2021-03-23 20:57:15,606 - __main__ - INFO - Finish
+2021-03-23 20:59:00,701 - __main__ - INFO - Start print log
+2021-03-23 20:59:00,706 - __main__ - WARNING - Something maybe fail.
+2021-03-23 20:59:00,717 - __main__ - INFO - Finish
+2021-03-23 20:59:49,877 - __main__ - INFO - Start print log
+2021-03-23 20:59:49,877 - __main__ - INFO - Start print log
+2021-03-23 20:59:49,889 - __main__ - WARNING - Something maybe fail.
+2021-03-23 20:59:49,889 - __main__ - WARNING - Something maybe fail.
+2021-03-23 20:59:49,911 - __main__ - INFO - Finish
+2021-03-23 20:59:49,911 - __main__ - INFO - Finish
+2021-03-23 21:14:20,203 - __main__ - ERROR - file绍峰
+2021-03-23 21:14:20,203 - __main__ - ERROR - file绍峰
+2021-03-23 21:21:10,990 - __main__ - INFO - test
+2021-03-23 21:21:10,990 - __main__ - INFO - test
+2021-03-23 21:21:31,060 - __main__ - INFO - test
+2021-03-23 21:21:31,060 - __main__ - INFO - test
+2021-03-23 21:21:44,370 - __main__ - INFO - Start print log
+2021-03-23 21:21:44,442 - __main__ - WARNING - Something maybe fail.
+2021-03-23 21:21:44,469 - __main__ - INFO - Finish
+2021-03-23 21:23:18,778 - __main__ - INFO - Start print log
+2021-03-23 21:23:18,892 - __main__ - INFO - Finish
+2021-03-23 21:25:52,279 - __main__ - INFO - Start print log
+2021-03-23 21:25:52,279 - __main__ - INFO - Start print log
+2021-03-23 21:25:52,396 - __main__ - WARNING - Something maybe fail.
+2021-03-23 21:25:52,396 - __main__ - WARNING - Something maybe fail.
+2021-03-23 21:25:52,447 - __main__ - INFO - Finish
+2021-03-23 21:25:52,447 - __main__ - INFO - Finish
+2021-03-23 21:25:59,446 - __main__ - INFO - Start print log
+2021-03-23 21:25:59,446 - __main__ - INFO - Start print log
+2021-03-23 21:25:59,446 - __main__ - INFO - Start print log
+2021-03-23 21:25:59,543 - __main__ - WARNING - Something maybe fail.
+2021-03-23 21:25:59,543 - __main__ - WARNING - Something maybe fail.
+2021-03-23 21:25:59,543 - __main__ - WARNING - Something maybe fail.
+2021-03-23 21:25:59,600 - __main__ - INFO - Finish
+2021-03-23 21:25:59,600 - __main__ - INFO - Finish
+2021-03-23 21:25:59,600 - __main__ - INFO - Finish
+2021-03-23 21:26:06,541 - __main__ - INFO - Start print log
+2021-03-23 21:26:06,541 - __main__ - INFO - Start print log
+2021-03-23 21:26:06,541 - __main__ - INFO - Start print log
+2021-03-23 21:26:06,541 - __main__ - INFO - Start print log
+2021-03-23 21:26:06,680 - __main__ - WARNING - Something maybe fail.
+2021-03-23 21:26:06,680 - __main__ - WARNING - Something maybe fail.
+2021-03-23 21:26:06,680 - __main__ - WARNING - Something maybe fail.
+2021-03-23 21:26:06,680 - __main__ - WARNING - Something maybe fail.
+2021-03-23 21:26:06,746 - __main__ - INFO - Finish
+2021-03-23 21:26:06,746 - __main__ - INFO - Finish
+2021-03-23 21:26:06,746 - __main__ - INFO - Finish
+2021-03-23 21:26:06,746 - __main__ - INFO - Finish
+2021-03-23 21:26:15,520 - __main__ - INFO - Start print log
+2021-03-23 21:26:15,567 - __main__ - WARNING - Something maybe fail.
+2021-03-23 21:26:15,589 - __main__ - INFO - Finish
+2021-03-23 21:27:45,365 - __main__ - INFO - Start print log
+2021-03-23 21:27:45,421 - __main__ - INFO - Finish
