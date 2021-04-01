@@ -1,4 +1,10 @@
 
+#Header转字典
+def header_dict(): 
+    headers = dict([line.split(": ",1) for line in """{}""".format(input("输入要转换为字典的字符串:\r")).split("\n")])    
+    return headers
+header_dict()
+
 
 # xrang迭代器
 
