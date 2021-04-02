@@ -1,5 +1,53 @@
-
-#Header转字典
+# PYQT示例
+import sys
+from PyQt6.QtWidgets import (QWidget, QToolTip, QMessageBox,QTextEdit,QLabel,
+    QPushButton, QApplication,QMainWindow, QHBoxLayout, QVBoxLayout,QGridLayout,
+    QLineEdit)
+from PyQt6.QtGui import QFont,QIcon,QAction
+from PyQt6.QtCore import QCoreApplication
+  ###***提示文本***## #
+class PromptText(QWidget):
+ 
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+ 
+    def initUI(self):
+        self.setGeometry(700, 100, 600, 600) # 窗口在屏幕上显示，并设置了它的尺寸。resize()和remove()合而为一的方法。
+        # 前两个参数定位了窗口的x轴和y轴位置。第三个参数是定义窗口的宽度，第四个参数是定义窗口的高度。
+        self.setWindowTitle('QTstudy') # 创建一个窗口标题
+        self.setWindowIcon(QIcon('t1.jpg')) # 创建一个QIcon对象并接收一个我们要显示的图片路径作为参数。
+        self.setToolTip('This is a <b>QWidget</b> widget')  # 调用setTooltip()方法创建提示框。
+        # 可以在提示框中使用富文本格式。
+        QToolTip.setFont(QFont('SansSerif', 10))  # 这个静态方法设置了用于提示框的字体。
+        # 这里使用10px大小的SansSerif字体。
+        btn = QPushButton('Button', self)  # 创建按钮
+        #QPushButton(string text, QWidget parent = None)
+        # text参数是将显示在按钮中的内容。
+        # parent参数是一个用来放置我们按钮的组件。在下文例子中将会是QWidget组件。
+        # 一个应用的组件是分层结构的。在这个分层内，大多数组件都有父类。没有父类的组件是顶级窗口。
+        btn.setToolTip('This is a <b>QPushButton</b> widget')  # 设置按钮提示框
+        btn.resize(btn.sizeHint())  # 改变按钮大小
+        btn.move(0,0)  # 移动按钮位置
+        qbtn = QPushButton('Quit', self)  # 创建了一个按钮。按钮是一个QPushButton类的实例。
+        # 构造方法的第一个参数是显示在button上的标签文本。第二个参数是父组件。
+        # 父组件是Example组件，它继承了QWiget类。
+        qbtn.clicked.connect(QCoreApplication.instance().quit)
+        # 在PyQt5中，事件处理系统由信号&槽机制建立。如果我们点击了按钮，信号clicked被发送。
+        # 槽可以是Qt内置的槽或Python 的一个方法调用。QCoreApplication类包含了主事件循环；
+        # 它处理和转发所有事件。instance()方法给我们返回一个实例化对象。注意QCoreAppli类由QApplication创建。
+        # 点击信号连接到quit()方法，将结束应用。事件通信在两个对象之间进行：发送者和接受者。
+        # 发送者是按钮，接受者是应用对象。
+        qbtn.resize(qbtn.sizeHint())
+        qbtn.move(500, 00)
+        self.show()
+ 
+ 
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    ex = PromptText()
+    sys.exit(app.exec())
+# Header转字典
 def header_dict(): 
     headers = dict([line.split(": ",1) for line in """{}""".format(input("输入要转换为字典的字符串:\r")).split("\n")])    
     return headers
