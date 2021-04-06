@@ -1,4 +1,5 @@
 # PYQT示例
+"""
 import sys
 from PyQt6.QtWidgets import (QWidget, QToolTip, QMessageBox,QTextEdit,QLabel,
     QPushButton, QApplication,QMainWindow, QHBoxLayout, QVBoxLayout,QGridLayout,
@@ -6,18 +7,26 @@ from PyQt6.QtWidgets import (QWidget, QToolTip, QMessageBox,QTextEdit,QLabel,
 from PyQt6.QtGui import QFont,QIcon,QAction
 from PyQt6.QtCore import QCoreApplication
   ###***提示文本***## #
-class PromptText(QWidget):
- 
+class PromptText(QMainWindow):
     def __init__(self):
         super().__init__()
         self.initUI()
  
     def initUI(self):
+        menubar = self.statusBar()#第一次调用这个方法创建了一个状态栏。随后方法返回状态栏对象。
+        menubar.showMessage('Ready')
+        #然后用showMessage()方法在状态栏上显示一些信息。
+        exitAction = QAction(QIcon('t2.jpg'), '&Exit', self)
+        exitAction.setShortcut('Ctrl+Q')
+        exitAction.setStatusTip('Exit application')
+        exitAction.triggered.connect(qApp.quit)
+        fileMenu = menubar.addMenu('&File')
+        fileMenu.addAction(exitAction)
         self.setGeometry(700, 100, 600, 600) # 窗口在屏幕上显示，并设置了它的尺寸。resize()和remove()合而为一的方法。
-        # 前两个参数定位了窗口的x轴和y轴位置。第三个参数是定义窗口的宽度，第四个参数是定义窗口的高度。
-        self.setWindowTitle('QTstudy') # 创建一个窗口标题
+      # 前两个参数定位了窗口的x轴和y轴位置。第三个参数是定义窗口的宽度，第四个参数是定义窗口的高度。
+        self.setWindowTitle('menubar') # 创建一个窗口标题
         self.setWindowIcon(QIcon('t1.jpg')) # 创建一个QIcon对象并接收一个我们要显示的图片路径作为参数。
-        self.setToolTip('This is a <b>QWidget</b> widget')  # 调用setTooltip()方法创建提示框。
+        self.setToolTip('This is a <b>QMainWindow</b> widget')  # 调用setTooltip()方法创建提示框。
         # 可以在提示框中使用富文本格式。
         QToolTip.setFont(QFont('SansSerif', 10))  # 这个静态方法设置了用于提示框的字体。
         # 这里使用10px大小的SansSerif字体。
@@ -41,12 +50,50 @@ class PromptText(QWidget):
         qbtn.resize(qbtn.sizeHint())
         qbtn.move(500, 00)
         self.show()
+        
+    def closeEvent(self, event):
  
+        reply = QMessageBox.question(self, 'Message',
+                                     "Are you sure to quit?", QMessageBox.StandardButtons.No|
+                                     QMessageBox.StandardButtons.Yes, QMessageBox.StandardButtons.No)
+        if reply == QMessageBox.StandardButtons.Yes:
+            event.accept()
+        else:
+    
+            event.ignore()
+# ##***Message Box***## #
+class MessageBox(QWidget):
  
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+ 
+    def initUI(self):
+        qbtn = QPushButton('Quit', self)  # 创建了一个按钮。按钮是一个QPushButton类的实例。
+        # 构造方法的第一个参数是显示在button上的标签文本。第二个参数是父组件。
+        # 父组件是Example组件，它继承了QWiget类。
+        qbtn.clicked.connect(QCoreApplication.instance().quit)
+        qbtn.resize(qbtn.sizeHint())
+        qbtn.move(500, 50)
+        self.setGeometry(300, 100, 600, 600)
+        self.setWindowTitle('excise')
+        self.show()
+ 
+    def closeEvent(self, event):
+ 
+        reply = QMessageBox.question(self, 'Message',
+                                     "Are you sure to quit?", QMessageBox.Yes |
+                                     QMessageBox.No, QMessageBox.No)
+        if reply == QMessageBox.Yes:
+            event.accept()
+        else:
+            event.ignore()
+        
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = PromptText()
     sys.exit(app.exec())
+"""
 # Header转字典
 def header_dict(): 
     headers = dict([line.split(": ",1) for line in """{}""".format(input("输入要转换为字典的字符串:\r")).split("\n")])    
