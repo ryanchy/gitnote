@@ -72,6 +72,15 @@ class Ui_HeaderT(object):
         self.menuHelp.setTitle(_translate("HeaderT", "Help"))
         self.actionfile.setText(_translate("HeaderT", "save"))
 
+
+
     def button_clicked(self):
         self.statusbar.showMessage("you clicked the trainslate button")
-        QtWidgets.QMessageBox.information(self.pushButton, "标题", "这是第一个利用QtDesigner设计的GUI程序!")
+        # print(self.textEdit.toPlainText())
+        try:
+            headers = dict([line.split(": ", 1) for line in """{}""".format(self.textEdit.toPlainText()).split("\n")])
+            self.textBrowser.clear()
+            self.textBrowser.append(str(headers))
+        except Exception as e:
+            print(e)
+        # self.textBrowser.append(str(headers))
