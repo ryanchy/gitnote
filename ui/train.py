@@ -1,4 +1,4 @@
-# -*- c oding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'tran.ui'
 #
@@ -9,78 +9,66 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QMainWindow
-import sys
-class Ui_MainWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        self.initUI()
 
-    def initUI(self):
-        self.setObjectName("MainWindow")
-        self.resize(433, 279)
-        self.centralwidget = QtWidgets.QWidget()
+
+class Ui_HeaderT(object):
+    def setupUi(self, HeaderT):
+        HeaderT.setObjectName("HeaderT")
+        HeaderT.resize(474, 376)
+        self.centralwidget = QtWidgets.QWidget(HeaderT)
         self.centralwidget.setObjectName("centralwidget")
-        self.formLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.formLayoutWidget.setGeometry(QtCore.QRect(30, 10, 361, 215))
-        self.formLayoutWidget.setObjectName("formLayoutWidget")
-        self.formLayout = QtWidgets.QFormLayout(self.formLayoutWidget)
-        self.formLayout.setContentsMargins(0, 0, 0, 0)
-        self.formLayout.setObjectName("formLayout")
-        self.label_2 = QtWidgets.QLabel(self.formLayoutWidget)
-        self.label_2.setObjectName("label_2")
-        self.formLayout.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.label_2)
-        self.label = QtWidgets.QLabel(self.formLayoutWidget)
+        self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout.setObjectName("gridLayout")
+        self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setObjectName("label")
-        self.formLayout.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.label)
-        self.pushButton = QtWidgets.QPushButton(self.formLayoutWidget)
-        self.pushButton.setObjectName("pushButton")
-        self.formLayout.setWidget(4, QtWidgets.QFormLayout.LabelRole, self.pushButton)
-        self.pushButton_2 = QtWidgets.QPushButton(self.formLayoutWidget)
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.formLayout.setWidget(4, QtWidgets.QFormLayout.FieldRole, self.pushButton_2)
-        self.textEdit = QtWidgets.QTextEdit(self.formLayoutWidget)
+        self.gridLayout.addWidget(self.label, 0, 0, 1, 2)
+        self.textEdit = QtWidgets.QTextEdit(self.centralwidget)
         self.textEdit.setObjectName("textEdit")
-        self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.textEdit)
-        self.textBrowser = QtWidgets.QTextBrowser(self.formLayoutWidget)
+        self.gridLayout.addWidget(self.textEdit, 0, 2, 1, 1)
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setObjectName("label_2")
+        self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1)
+        self.textBrowser = QtWidgets.QTextBrowser(self.centralwidget)
         self.textBrowser.setObjectName("textBrowser")
-        self.formLayout.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.textBrowser)
-        self.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 433, 23))
+        self.gridLayout.addWidget(self.textBrowser, 1, 2, 1, 1)
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        font = QtGui.QFont()
+        font.setFamily("Adobe Devanagari")
+        self.pushButton.setFont(font)
+        self.pushButton.setObjectName("pushButton")
+        self.gridLayout.addWidget(self.pushButton, 2, 0, 1, 1)
+        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_2.setObjectName("pushButton_2")
+        self.gridLayout.addWidget(self.pushButton_2, 2, 1, 1, 1)
+        HeaderT.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(HeaderT)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 474, 28))
         self.menubar.setObjectName("menubar")
         self.menutest = QtWidgets.QMenu(self.menubar)
         self.menutest.setObjectName("menutest")
         self.menuHelp = QtWidgets.QMenu(self.menubar)
         self.menuHelp.setObjectName("menuHelp")
-        self.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        HeaderT.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(HeaderT)
         self.statusbar.setObjectName("statusbar")
-        self.setStatusBar(self.statusbar)
-        self.actionfile = QtWidgets.QAction(MainWindow)
+        HeaderT.setStatusBar(self.statusbar)
+        self.actionfile = QtWidgets.QAction(HeaderT)
         self.actionfile.setObjectName("actionfile")
         self.menutest.addAction(self.actionfile)
         self.menubar.addAction(self.menutest.menuAction())
         self.menubar.addAction(self.menuHelp.menuAction())
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
-        self.show()
+        self.retranslateUi(HeaderT)
+        self.pushButton.clicked.connect(HeaderT.button_clicked)
+        QtCore.QMetaObject.connectSlotsByName(HeaderT)
 
-
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, HeaderT):
         _translate = QtCore.QCoreApplication.translate
-        self.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label_2.setText(_translate("MainWindow", "字典:"))
-        self.label.setText(_translate("MainWindow", "请输入想要转换的header:"))
-        self.pushButton.setText(_translate("MainWindow", "转换"))
-        self.pushButton_2.setText(_translate("MainWindow", "导出"))
-        self.menutest.setTitle(_translate("MainWindow", "File"))
-        self.menuHelp.setTitle(_translate("MainWindow", "Help"))
-        self.actionfile.setText(_translate("MainWindow", "save"))
-
-
-if __name__ == '__main__':
-    app = QtWidgets.QApplication(sys.argv)
-    ex = Ui_MainWindow(QMainWindow)
-    sys.exit(app.exec_())
+        HeaderT.setWindowTitle(_translate("HeaderT", "MainWindow"))
+        self.label.setText(_translate("HeaderT", "请输入想要转换的header:"))
+        self.label_2.setText(_translate("HeaderT", "字典:"))
+        self.pushButton.setText(_translate("HeaderT", "转换"))
+        self.pushButton_2.setText(_translate("HeaderT", "清除"))
+        self.menutest.setTitle(_translate("HeaderT", "File"))
+        self.menuHelp.setTitle(_translate("HeaderT", "Help"))
+        self.actionfile.setText(_translate("HeaderT", "save"))

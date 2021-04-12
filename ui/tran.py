@@ -21,16 +21,16 @@ class Ui_HeaderT(object):
         self.gridLayout.setObjectName("gridLayout")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setObjectName("label")
-        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.label, 0, 0, 1, 2)
         self.textEdit = QtWidgets.QTextEdit(self.centralwidget)
         self.textEdit.setObjectName("textEdit")
-        self.gridLayout.addWidget(self.textEdit, 0, 1, 1, 1)
+        self.gridLayout.addWidget(self.textEdit, 0, 2, 1, 1)
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setObjectName("label_2")
         self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1)
         self.textBrowser = QtWidgets.QTextBrowser(self.centralwidget)
         self.textBrowser.setObjectName("textBrowser")
-        self.gridLayout.addWidget(self.textBrowser, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.textBrowser, 1, 2, 1, 1)
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         font = QtGui.QFont()
         font.setFamily("Adobe Devanagari")
@@ -42,7 +42,7 @@ class Ui_HeaderT(object):
         self.gridLayout.addWidget(self.pushButton_2, 2, 1, 1, 1)
         HeaderT.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(HeaderT)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 474, 23))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 474, 28))
         self.menubar.setObjectName("menubar")
         self.menutest = QtWidgets.QMenu(self.menubar)
         self.menutest.setObjectName("menutest")
@@ -57,8 +57,11 @@ class Ui_HeaderT(object):
         self.menutest.addAction(self.actionfile)
         self.menubar.addAction(self.menutest.menuAction())
         self.menubar.addAction(self.menuHelp.menuAction())
+
         self.retranslateUi(HeaderT)
         self.pushButton.clicked.connect(self.button_clicked)
+        self.pushButton_2.clicked.connect(self.button2_clicked)
+        #self.pushButton_2.clicked.connect(HeaderT.textBrowser.clear())
         QtCore.QMetaObject.connectSlotsByName(HeaderT)
 
     def retranslateUi(self, HeaderT):
@@ -67,7 +70,7 @@ class Ui_HeaderT(object):
         self.label.setText(_translate("HeaderT", "请输入想要转换的header:"))
         self.label_2.setText(_translate("HeaderT", "字典:"))
         self.pushButton.setText(_translate("HeaderT", "转换"))
-        self.pushButton_2.setText(_translate("HeaderT", "导出"))
+        self.pushButton_2.setText(_translate("HeaderT", "清除"))
         self.menutest.setTitle(_translate("HeaderT", "File"))
         self.menuHelp.setTitle(_translate("HeaderT", "Help"))
         self.actionfile.setText(_translate("HeaderT", "save"))
@@ -83,4 +86,7 @@ class Ui_HeaderT(object):
             self.textBrowser.append(str(headers))
         except Exception as e:
             print(e)
-        # self.textBrowser.append(str(headers))
+    def button2_clicked(self):
+    	self.textEdit.clear()
+    	self.textBrowser.clear()
+        
