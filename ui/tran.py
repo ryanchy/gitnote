@@ -9,8 +9,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
-
+# import re
+import logging
 class Ui_HeaderT(object):
     def setupUi(self, HeaderT):
         HeaderT.setObjectName("HeaderT")
@@ -59,10 +59,17 @@ class Ui_HeaderT(object):
         self.menubar.addAction(self.menuHelp.menuAction())
 
         self.retranslateUi(HeaderT)
+        self.loggingg()
         self.pushButton.clicked.connect(self.button_clicked)
         self.pushButton_2.clicked.connect(self.button2_clicked)
         #self.pushButton_2.clicked.connect(HeaderT.textBrowser.clear())
         QtCore.QMetaObject.connectSlotsByName(HeaderT)
+
+
+    def loggingg(self):
+        self.logger = logging.getLogger(__name__)
+        logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
 
     def retranslateUi(self, HeaderT):
         _translate = QtCore.QCoreApplication.translate
@@ -78,15 +85,19 @@ class Ui_HeaderT(object):
 
 
     def button_clicked(self):
-        self.statusbar.showMessage("you clicked the trainslate button")
+        self.statusbar.showMessage("you clicked the translate button")
         # print(self.textEdit.toPlainText())
         try:
-            headers = dict([line.split(": ", 1) for line in """{}""".format(self.textEdit.toPlainText()).split("\n")])
+            headers = dict([line.split(":", 1) for line in """{}""".format(self.textEdit.toPlainText().replace(": \n", ": ")).split("\n")])
             self.textBrowser.clear()
             self.textBrowser.append(str(headers))
+            self.logger.info("sucess")
         except Exception as e:
-            print(e)
+            # self.logger.warning(e)
+            self.logger.warning("格式错误")
+
     def button2_clicked(self):
-    	self.textEdit.clear()
-    	self.textBrowser.clear()
-        
+        self.textEdit.clear()
+        self.textBrowser.clear()
+        self.statusbar.showMessage("you have cleared the screen")
+        self.logger.info("清除内容")
