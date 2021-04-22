@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['/home/cy/Nutstore/gitnote/ui'],
+             pathex=['C:\\home\\cy\\gitnote\\ui'],
              binaries=[],
              datas=[],
              hiddenimports=[],
