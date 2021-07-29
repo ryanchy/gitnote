@@ -173,3 +173,32 @@ log_date_format = %Y-%M-%D %H:%M:%S
 
 ```
 
+# selenium避开反扒策略
+```
+from selenium.webdriver import Chrome
+from selenium.webdriver import ChromeOptions
+import time
+from pyquery import PyQuery
+
+option = ChromeOptions()
+option.add_experimental_option('excludeSwitches', ['enable-automation'])
+driver = Chrome(options=option)
+driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
+  "source": """
+    Object.defineProperty(navigator, 'webdriver', {
+      get: () => undefined
+    })
+  """
+})
+driver.get("https://blog.csdn.net/perfect_red/article/details/81562776")
+js = 'window.scrollTo(0,document.body.scrollHeight)'
+driver.execute_script(js)
+time.sleep(5)
+page_text = driver.page_source
+# driver.execute_script("window.open('https://www.baidu.com')")
+# driver.switch_to.window(window_name=driver.window_handles[0])
+time.sleep(5)
+driver.quit()
+title_text = PyQuery(page_text)("title")
+print(title_text.text())
+```
