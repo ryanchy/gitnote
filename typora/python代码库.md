@@ -203,7 +203,7 @@ title_text = PyQuery(page_text)("title")
 print(title_text.text())
 ```
 
-#hook js 油猴脚本
+# hook js 油猴脚本
 1
 油猴hook脚本可以像数组一样遍历函数名，
 虽然有点碰运气但还是可以尝试。
