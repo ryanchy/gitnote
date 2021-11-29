@@ -402,3 +402,50 @@ else:
 		output_number += "~"
 print(output_number)
 print(output_char)
+
+
+num_dic = {"0":"呼啦圈", "1":"蜡烛", "2":"鹅", "3":"耳朵", "4":"帆船", "5":"钩子", "6":"勺子", "7":"镰刀", "8":"墨镜", "9":"哨子", "00":"望远镜", "01":"小树", "02":"铃儿", "03":"凳子", "04":"轿车", "05":"手套", "06":"手枪", "07":"锄头", "08":"溜冰鞋", "09":"猫", "10":"棒球", "11":"梯子", "12":"椅儿", "13":"医生", "14":"钥匙", "15":"鹦鹉", "16":"石榴", "17":"仪器", "18":"糖葫芦", "19":"衣钩", "20":"香烟", "21":"鳄鱼", "22":"双胞胎", "23":"和尚", "24":"闹钟", "25":"二胡", "26":"河流", "27":"耳机", "28":"恶霸", "29":"饿囚", "30":"三轮车", "31":"鲨鱼", "32":"扇儿", "33":"猩猩", "34":"三丝", "35":"珊瑚", "36":"山鹿", "37":"山鸡", "38":"妇女", "39":"山丘", "40":"司令", "41":"蜥蜴", "42":"柿儿", "43":"石山", "44":"蛇", "45":"师傅", "46":"饲料", "47":"司机", "48":"石板", "49":"湿狗", "50":"武林", "51":"工人", "52":"鼓儿", "53":"乌沙帽", "54":"青年", "55":"火车", "56":"蜗牛", "57":"武器", "58":"尾巴", "59":"蜈蚣", "60":"榴莲", "61":"儿童", "62":"牛儿", "63":"流沙", "64":"螺丝", "65":"老虎", "66":"溜溜球", "67":"氯气", "68":"喇叭", "69":"太极", "70":"麒麟", "71":"机翼", "72":"企鹅", "73":"花旗参", "74":"骑士", "75":"西服", "76":"汽油", "77":"机器", "78":"青蛙", "79":"气球", "80":"巴黎铁塔", "81":"白蚁", "82":"拉菲", "83":"芭蕉扇", "84":"巴士", "85":"保姆", "86":"八路", "87":"白旗", "88":"麻花辫", "89":"八角", "90":"酒瓶", "91":"球衣", "92":"球儿", "93":"旧伞", "94":"首饰", "95":"酒壶", "96":"蝴蝶", "97":"旧旗", "98":"酒杯", "99":"钻石",}
+input_number = input("输入数字:")
+input_number_char = list(str(input_number).replace(" ", "").replace(".", ""))
+output_char1 = ""
+output_char2 = ""
+output_number = ""
+num_len = len(input_number_char)
+i = 0
+while i < num_len:
+	one_or_two = ""
+	if output_char1 != "":
+		output_char1 += "~"
+	output_char1 += (num_dic[input_number_char[i]] + "/" + num_dic[(input_number_char[i] + input_number_char[i+1])])
+
+	while one_or_two != "1" and one_or_two != "2":
+		print(output_char1)
+		if output_char2 != "":
+			output_char2 += "~"
+		if output_number != "":
+			output_number += "~"
+		one_or_two = input('请输入数字"1"或"2"取1或2位:')
+		if one_or_two == "1":
+			output_char2 += num_dic[input_number_char[i]]
+			output_char1 = output_char2
+			output_number += input_number_char[i]
+			i += 1
+		elif one_or_two == "2":
+			output_char2 += num_dic[(input_number_char[i] + input_number_char[i+1])]
+			output_char1 = output_char2
+			output_number += input_number_char[i] + input_number_char[i+1]
+			i += 2
+	if i + 1 == num_len:
+		output_char2 += "~"
+		output_char2 += num_dic[input_number_char[i]]
+		output_number += "~"
+		output_number += input_number_char[i]
+		i += 1
+# else:
+# 	for i in range(num_len // 2):
+# 		output_char += num_dic[(input_number_char[2 * i] + input_number_char[2 * i + 1])]
+# 		output_char += "~"
+# 		output_number += (input_number_char[2 * i] + input_number_char[2 * i + 1])
+# 		output_number += "~"
+print(output_number)
+print(output_char2)
